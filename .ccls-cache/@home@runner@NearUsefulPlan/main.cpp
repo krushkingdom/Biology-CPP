@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <map>
 
 class Base
 {
@@ -46,7 +46,7 @@ class Base
 class Codon
 {
     public:
-        Codon(){}
+        Codon(std::vector<Base> input_codon): three_bases{input_codon} {}
         ~Codon(){}
 
         std::vector<Base> get_codon()
@@ -73,8 +73,25 @@ class Codon
             return os;
         }
 
+        std::string string_form()
+        {
+            std::string ret_string_bases(three_bases.begin(), three_bases.end());
+            string_bases = ret_string_bases;
+            return string_bases;
+        }
+
+        bool is_stop_codon()
+        {
+            if (string_form() ==  "UGA" || string_form() == "UAA" || string_form() == "UAG") {
+                return true;
+            }
+            return false;
+        }
+        
+
     private:
         std::vector<Base> three_bases;
+        std::string string_bases;
 };
 
 class Genome
@@ -82,6 +99,16 @@ class Genome
     public:
         Genome(std::vector<Codon> input_sequence): sequence{input_sequence}{}
         ~Genome(){}
+
+        friend std::ostream& operator<<(std::ostream& os, Genome genome)
+        {
+            int i = 0;
+            for(i = 0; i < genome.sequence.size(); ++i)
+            {
+                os << genome.sequence[i];
+            }
+            return os;
+        }
 
     private:
         std::vector<Codon> sequence;

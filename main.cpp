@@ -65,7 +65,6 @@ class Codon
 
         friend std::ostream& operator<<(std::ostream& os, Codon codon)
         {
-            //codon.print_codon();
             int i = 0;
             for(i = 0; i < codon.three_bases.size(); ++i)
             {

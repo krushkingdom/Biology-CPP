@@ -1,11 +1,48 @@
 #include <iostream>
+#include <vector>
 
-template<typename Type>
-class Genome{
+
+class Base
+{
     public:
-        Genome(){}
-    
+        Base(char input_letter){}
+        ~Base(){}
+
+        bool verify_base()
+        {
+            
+        }
+
+    private:
+        char base_letter;
 };
-int main() {
+
+class Codon
+{
+    public:
+        Codon(){}
+        ~Codon(){}
+
+        Codon get_codon()
+        {
+            
+        }
+
+    private:
+        std::vector<Base> three_bases;
+};
+
+class Genome
+{
+    public:
+        Genome(std::vector<Codon> input_sequence): sequence{input_sequence}{}
+        ~Genome(){}
+
+    private:
+        std::vector<Codon> sequence;
+};
+
+int main()
+{
     std::cout << "Hello World!\n";
 }

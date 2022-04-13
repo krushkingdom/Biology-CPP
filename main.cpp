@@ -110,11 +110,27 @@ class Genome
             return os;
         }
 
-    private:
+    //private:
         std::vector<Codon> sequence;
 };
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Base U = Base('U');
+    Base G = Base('G');
+    Base A = Base('A');
+
+    Codon stop = Codon(std::vector<Base>{U, G, A});
+
+    Genome gen = Genome(std::vector<Codon>{stop, stop, stop});
+
+     if(gen.sequence[0].is_stop_codon() == true)
+     {
+          std:: cout << "Is Codon 0 a Stop Codon? --> True";
+     }
+    else{
+        std:: cout << "Is Codon 0 a Stop Codon?  --> False";
+    }
+   
+    return 0;
 }

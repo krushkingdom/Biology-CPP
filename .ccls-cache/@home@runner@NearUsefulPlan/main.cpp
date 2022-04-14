@@ -8,7 +8,7 @@ class Base
         Base(char input_letter) : base_letter{input_letter}{}
         ~Base(){}
 
-        char get_base_letter() const
+        char get_base_letter()
         {
             return base_letter;
         }
@@ -38,7 +38,7 @@ class Base
             
         }
 
-        friend std::ostream& operator<<(std::ostream& os, const Base& base)
+        friend std::ostream& operator<<(std::ostream& os, const Base base)
         {
             os << base.base_letter;
             return os;
@@ -80,7 +80,8 @@ class Codon
 
         std::string string_form()
         {
-            std::string ret_string_bases(three_bases.begin(), three_bases.end());
+            char_bases = char_form();
+            std::string ret_string_bases(char_bases.begin(), char_bases.end());
             string_bases = ret_string_bases;
             return string_bases;
         }
@@ -131,7 +132,6 @@ class Genome
 
 int main()
 {
-    /*
     Base U = Base('U');
     Base G = Base('G');
     Base A = Base('A');
@@ -146,7 +146,7 @@ int main()
      }
     else{
         std:: cout << "Is Codon 0 a Stop Codon?  --> False";
-    } */
+    }
    
     return 0;
 }

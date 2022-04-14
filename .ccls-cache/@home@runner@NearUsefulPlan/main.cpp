@@ -5,8 +5,13 @@
 class Base
 {
     public:
-        Base(char input_letter){}
+        Base(char input_letter) : base_letter{input_letter}{}
         ~Base(){}
+
+        char get_base_letter() const
+        {
+            return base_letter;
+        }
 
         bool verify_base(char input_letter)
         {
@@ -87,10 +92,20 @@ class Codon
             }
             return false;
         }
-        
+
+        std::vector<char> char_form()
+        {
+            int i = 0;
+            for(i = 0; i < three_bases.size(); ++i)
+            {
+                char_bases[i] = three_bases[i].get_base_letter();
+            }
+            return char_bases;
+        }
 
     private:
         std::vector<Base> three_bases;
+        std::vector<char> char_bases;
         std::string string_bases;
 };
 
@@ -116,6 +131,7 @@ class Genome
 
 int main()
 {
+    /*
     Base U = Base('U');
     Base G = Base('G');
     Base A = Base('A');
@@ -130,7 +146,7 @@ int main()
      }
     else{
         std:: cout << "Is Codon 0 a Stop Codon?  --> False";
-    }
+    } */
    
     return 0;
 }

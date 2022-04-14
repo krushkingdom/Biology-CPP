@@ -136,6 +136,9 @@ int main()
     Base G = Base('G');
     Base A = Base('A');
 
+    std::cout << U << G << A << std::endl;
+
+    /*
     Codon stop = Codon(std::vector<Base>{U, G, A});
 
     Genome gen = Genome(std::vector<Codon>{stop, stop, stop});
@@ -144,9 +147,10 @@ int main()
      {
           std:: cout << "Is Codon 0 a Stop Codon? --> True";
      }
-    else{
+    else
+    {
         std:: cout << "Is Codon 0 a Stop Codon?  --> False";
     }
-   
+   */
     return 0;
 }
